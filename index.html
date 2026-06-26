@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalação da VPN | Xpert</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Instalação da VPN</h1>
+        <p>Guia para configuração do acesso remoto dos colaboradores.</p>
+    </header>
+
+    <nav>
+        <a href="#passo1">Primeiro Passo</a>
+        <a href="#passo2">Segundo Passo</a>
+        <a href="#passo3">Terceiro Passo</a>
+    </nav>
+
+    <main>
+
+        <section id="passo1">
+            <h2>1. Instalação da VPN</h2>
+
+            <p>
+                Acesse o computador do funcionário e faça o download da pasta contendo os arquivos da VPN.
+            </p>
+
+            <div class="buttons">
+                <a href="https://cloud.xpert.com.br/apps/files/files/375638?dir=/InfraTI/VPN" target="_blank">
+                    Download dos Arquivos da VPN
+                </a>
+            </div>
+
+            <h3>Extraindo os arquivos</h3>
+
+            <p>Após realizar o download, extraia a pasta.</p>
+
+            <div class="image-grid">
+                <div>
+                    <img src="assets/image-5.png" alt="">
+                </div>
+
+                <div>
+                    <img src="assets/image-6.png" alt="">
+                </div>
+            </div>
+
+            <p>
+                Entre na pasta extraída e extraia também o arquivo
+                <strong>xpert-matriz-auth.zip</strong>.
+            </p>
+
+            <div class="image-grid">
+                <div>
+                    <img src="assets/image-7.png" alt="">
+                </div>
+
+                <div>
+                    <img src="assets/image-8.png" alt="">
+                </div>
+
+                <div>
+                    <img src="assets/image-9.png" alt="">
+                </div>
+
+                <div>
+                    <img src="assets/image-11.png" alt="">
+                </div>
+            </div>
+
+            <hr>
+
+            <h3>Importando o Perfil</h3>
+
+            <p>Abra o OpenVPN Connect.</p>
+
+            <img src="assets/image-4.png" alt="OpenVPN Connect">
+
+            <p>Clique em <strong>Upload File</strong>.</p>
+
+            <div class="image-grid">
+                <div>
+                    <img src="assets/image-12.png" alt="">
+                </div>
+
+                <div>
+                    <img src="assets/image-13.png" alt="">
+                </div>
+            </div>
+
+            <div class="alert">
+                Selecione o arquivo <strong>xpert-matriz-alg.ovpn</strong>.
+            </div>
+
+            <div class="image-grid">
+                <div>
+                    <img src="assets/image-15.png" alt="">
+                </div>
+
+                <div>
+                    <img src="assets/image-17.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="passo2">
+            <h2>2. Removendo o Certificado</h2>
+
+            <p>
+                Antes de criar o usuário da VPN, o certificado deve ser removido.
+            </p>
+
+            <div class="alert">
+                Este procedimento é obrigatório antes da criação do acesso do colaborador.
+            </div>
+
+            <div class="image-grid">
+                <div>
+                    <img src="assets/image-18.png" alt="">
+                    <p>Acesse o menu.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-20.png" alt="">
+                    <p>Entre em <strong>My Profiles</strong>.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-22.png" alt="">
+                    <p>Clique na caneta.</p>
+                </div>
+            </div>
+
+            <div class="image-grid">
+                <div>
+                    <img src="assets/image-23.png" alt="">
+                    <p>Remova o certificado.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-24.png" alt="">
+                    <p>O botão deve permanecer dessa forma.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-25.png" alt="">
+                    <p>Clique em <strong>Save Changes</strong>.</p>
+                </div>
+            </div>
+
+            <div class="success">
+                Agora o TI poderá criar o usuário da VPN.
+            </div>
+        </section>
+
+        <section id="passo3">
+            <h2>3. Configurando o arquivo Hosts</h2>
+
+            <p>
+                Para acessar corretamente o GitLab e o Cloud da empresa será necessário editar o arquivo
+                <strong>hosts</strong> do Windows.
+            </p>
+
+            <div class="image-grid">
+                <div>
+                    <img src="assets/image-26.png" alt="">
+                    <p>Acesse a pasta.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-30.png" alt="">
+                    <p>Entre na pasta <strong>etc</strong>.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-31.png" alt="">
+                    <p>Abra com o Notepad++.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-32.png" alt="">
+                    <p>Arquivo original.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-33.png" alt="">
+                    <p>Resultado esperado.</p>
+                </div>
+            </div>
+
+            <h3>Adicione as seguintes linhas:</h3>
+
+            <pre>
+192.168.1.246    gitlab.xpertgit.com
+192.168.1.240    cloud.xpert.com.br
+            </pre>
+
+            <div class="alert danger">
+                Nunca utilize o caractere <strong>#</strong> antes dessas linhas, pois ele transforma o conteúdo em comentário.
+            </div>
+
+            <div class="image-grid">
+                <div>
+                    <img src="assets/image-34.png" alt="">
+                    <p>Salvar alterações.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-35.png" alt="">
+                    <p>Confirmar a gravação.</p>
+                </div>
+
+                <div>
+                    <img src="assets/image-37.png" alt="">
+                    <p>Executar como administrador.</p>
+                </div>
+            </div>
+
+            <div class="success">
+                🎉 Instalação da VPN concluída com sucesso.
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
